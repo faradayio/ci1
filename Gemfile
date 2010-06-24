@@ -24,8 +24,7 @@ gem "bcat", "~>0.5"
 gem "rack", "1.1.0"
 
 # Required to deploy on Heroku
-gem "do_postgres", "0.10.2"
-gem "postgres_adapter"
+# gem "do_postgres", "0.10.2"
 
 # These are dependencies for the various notifiers. Uncomment as appropriate.
 # = Email

@@ -1,12 +1,24 @@
 require "rake/testtask"
 require "rake/clean"
 
+task :env do
+  ENV["DATABASE_URL"] = "sqlite:///#{File.dirname(__FILE__)}/tmp/prism_ci.db"
+  ENV["URL"] = 'http://localhost:9292'
+  ENV["GITHUB_TOKEN"] = nil
+  ENV['HTTP_AUTH_USERNAME'] = 'god'
+  ENV['HTTP_AUTH_PASSWORD'] = 'secret'
+end
+
+task :run => :env do
+  `bundle exec rackup`
+end
+
 desc "Default: run all tests"
 task :default => :test
 
 desc "Run tests"
 task :test => %w[test:unit test:acceptance]
-namespace :test do
+namespace :test => :env do
   desc "Run unit tests"
   Rake::TestTask.new(:unit) do |t|
     t.libs << "test"
@@ -21,13 +33,13 @@ namespace :test do
 end
 
 desc "Create the database"
-task :db do
+task :db => :env do
   require "init"
   DataMapper.auto_upgrade!
 end
 
 desc "Clean-up build directory"
-task :cleanup do
+task :cleanup => :env do
   require "init"
   Integrity::Build.all(:completed_at.not => nil).each { |build|
     dir = Integrity.directory.join(build.id.to_s)
@@ -37,14 +49,14 @@ end
 
 namespace :jobs do
   desc "Clear the delayed_job queue."
-  task :clear do
+  task :clear => :env do
     require "init"
     require "integrity/builder/delayed"
     Delayed::Job.delete_all
   end
 
   desc "Start a delayed_job worker."
-  task :work do
+  task :work => :env do
     require "init"
     require "integrity/builder/delayed"
     Delayed::Worker.new.start
@@ -56,7 +68,7 @@ begin
     require "resque/tasks"
 
     desc "Start a Resque worker for Integrity"
-    task :work do
+    task :work => :env do
       require "init"
       ENV["QUEUE"] = "integrity"
       Rake::Task["resque:resque:work"].invoke

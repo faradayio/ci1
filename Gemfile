@@ -1,6 +1,7 @@
 source "http://rubygems.org"
 
 gem "rack", :git => "git://github.com/rack/rack.git"  # rack gem ist verbroken
+gem "thin"
 gem "dm-sqlite-adapter", "1.0.0"
 gem "dm-postgres-adapter", "1.0.0"
 gem "dm-core", "1.0.0"

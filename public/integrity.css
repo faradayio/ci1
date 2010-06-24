@@ -341,3 +341,8 @@ a.failed {
   text-align: right; }
   #footer strong {
     font-weight: bold; }
+
+iframe {
+  width: 100%;
+  height: 640px;
+}

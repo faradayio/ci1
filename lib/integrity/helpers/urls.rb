@@ -61,6 +61,14 @@ module Integrity
         project_path(build.project, "builds", build.id, *path)
       end
 
+      def build_report_path(build, *path)
+        project_path(build.project, "builds", build.id, 'report', *path)
+      end
+
+      def build_report_url(build, *path)
+        project_url(build.project, "builds", build.id, 'report', *path)
+      end
+
       # Copyright (MIT) Eric Kidd -- http://github.com/emk/sinatra-url-for
       #
       # Construct a link to +url_fragment+, which should be given relative to

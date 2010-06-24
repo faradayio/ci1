@@ -130,5 +130,11 @@ module Integrity
       current_build.destroy!
       redirect url
     end
+    
+    get "/:project/builds/:build/report" do
+      login_required unless current_project.public?
+
+      current_build.output
+    end
   end
 end

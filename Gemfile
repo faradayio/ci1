@@ -24,7 +24,7 @@ gem "bcat", "~>0.5"
 gem "rack", "1.1.0"
 
 # Required to deploy on Heroku
-# gem "do_postgres", "0.10.2"
+gem "do_postgres", "0.10.2"
 
 # These are dependencies for the various notifiers. Uncomment as appropriate.
 # = Email
@@ -43,7 +43,7 @@ gem "delayed_job", :git => "git://github.com/tobi/delayed_job.git"
 # gem "resque"
 
 # Uncomment if you're using pg or mysql instead of sqlite
-# gem "pg"
+gem "pg"
 # gem "mysql"
 
 # = Development dependencies.

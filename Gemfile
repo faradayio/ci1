@@ -82,4 +82,5 @@ group :prism_acceptance do
   gem 'cucumber'
   gem 'cucumber-rails'
   gem 'artifice'
+  gem 'timecop'
 end

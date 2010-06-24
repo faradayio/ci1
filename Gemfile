@@ -74,3 +74,14 @@ group :test do
   gem "webmock"
   gem "turn"
 end
+
+group :prism_acceptance do
+  gem 'json', '1.1.9'
+  gem 'carbon'
+  gem 'activesupport'
+
+  gem 'capybara'
+  gem 'cucumber'
+  gem 'cucumber-rails'
+  gem 'artifice'
+end

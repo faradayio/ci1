@@ -2,7 +2,8 @@
 
 %form{ :action => build_path(build), :method => :post }
   %p.submit
-    %a.button{ :href => build_report_path(@build) } Report
+    - if build.completed? and build.project.name == 'PRISM Acceptance'
+      %a.button{ :href => build_report_path(build) } Report
     %button{ :type => :submit, :title => "Rebuild this commit" }<
       Rebuild
 
@@ -20,9 +21,9 @@
         %a{ :href => github_commit_url(build) } view on GitHub
 
 - if build.completed?
-  - if @build.project.name == 'PRISM Acceptance'
+  - if build.project.name == 'PRISM Acceptance'
     %h2 Test Result:
-    %iframe{ :src => build_report_url(@build) }
+    %iframe{ :src => build_report_url(build) }
   - else
     %h2 Build Output:
     %pre.output

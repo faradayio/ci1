@@ -2,11 +2,10 @@ require "rake/testtask"
 require "rake/clean"
 
 task :env do
-  ENV["DATABASE_URL"] = "sqlite:///#{File.dirname(__FILE__)}/tmp/prism_ci.db"
-  ENV["URL"] = 'http://localhost:9292'
-  ENV["GITHUB_TOKEN"] = nil
-  ENV['HTTP_AUTH_USERNAME'] = 'god'
-  ENV['HTTP_AUTH_PASSWORD'] = 'secret'
+  ENV["DATABASE_URL"] ||= "sqlite:///#{File.dirname(__FILE__)}/tmp/prism_ci.db"
+  ENV["URL"] ||= 'http://localhost:9292'
+  ENV['HTTP_AUTH_USERNAME'] ||= 'god'
+  ENV['HTTP_AUTH_PASSWORD'] ||= 'secret'
 end
 
 task :run => :env do

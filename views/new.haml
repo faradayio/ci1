@@ -24,6 +24,11 @@
     %textarea#project_build_script{ :name => "project_data[command]", :cols => 40, :rows => 2 }
       &== #{@project.command.to_s}
 
+  %p.normal{ :class => error_class(@project, :format) }
+    %label{ :for => 'project_format' }
+      &== Format of the output of the build (e.g. HTML)
+    %input.text#project_format{ :name => 'project_data[format]', :type => 'text', :value => h(@project.format) }
+
   %p.normal.checkbox
     %label{ :for => "project_public" } Public project
     %input.hidden{ :name => "project_data[public]", :value => "0", :type => "hidden" }

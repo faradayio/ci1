@@ -85,6 +85,19 @@ group :prism_acceptance do
   gem 'json', '1.1.9'
   gem 'timecop'
 
+group :prism_acceptance do
+#  gem 'capybara'
+  gem 'cucumber'
+#  gem 'cucumber-rails'
+#  gem 'rake'
+#  gem 'rspec', '~>2.0.0.beta.17'
+#
+#  # carbon gem
+#  gem 'artifice'
+#  gem 'carbon'
+#  gem 'json', '1.1.9'
+#  gem 'timecop'
+
   gem 'activesupport', '~> 3.0.0'
   gem 'activerecord', '~> 3.0.0'
 

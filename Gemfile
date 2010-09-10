@@ -2,7 +2,6 @@ source "http://rubygems.org"
 
 gem "addressable", "2.1.1"
 gem "bcrypt-ruby", "2.1.2"
-gem 'bundler', '~> 1.0.0'
 gem "data_objects", "0.10.2"
 gem "dm-aggregates", "1.0.0"
 gem "dm-core", "1.0.0"
@@ -15,7 +14,6 @@ gem "do_sqlite3", "0.10.2"
 gem "extlib", "0.9.15"
 gem "haml", "2.2.17"
 gem "json", "1.1.9"
-gem "rack", :git => "git://github.com/rack/rack.git"  # rack gem ist verbroken
 gem "rake"
 gem "sinatra", "1.0.0"
 gem "sinatra-authorization", "1.0.0"

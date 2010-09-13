@@ -1,0 +1,9 @@
+#!/bin/bash
+
+export DATABASE_URL=sqlite://`pwd`/tmp/prism_ci.db
+export URL=http://localhost:3000
+export GITHUB_TOKEN=token
+export HTTP_AUTH_USERNAME=test
+export HTTP_AUTH_PASSWORD=test
+
+thin start

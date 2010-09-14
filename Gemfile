@@ -103,5 +103,5 @@ group :prism_acceptance do
   # emitter gems
   gem 'earth', '~> 0.0.36'
   gem 'emitter'
-  gem 'sniff'
+  gem 'sniff', '~> 0.1.14'
 end

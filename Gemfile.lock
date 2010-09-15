@@ -9,8 +9,8 @@ GEM
     ZenTest (4.4.0)
     addressable (2.1.1)
     ansi (1.2.2)
-    bcat (0.5.2)
-      rack (< 1.2)
+    bcat (0.5.0)
+      rack
     bcrypt-ruby (2.1.2)
     broach (0.1.4)
       nap (>= 0.3)
@@ -82,7 +82,7 @@ GEM
     nap (0.4)
     nokogiri (1.4.3.1)
     pg (0.9.0)
-    rack (1.1.0)
+    rack (1.2.1)
     rack-test (0.5.0)
     rake (0.8.7)
     randexp (0.1.5)
@@ -169,7 +169,6 @@ DEPENDENCIES
   nap
   nokogiri
   pg
-  rack (= 1.1.0)
   rack-test (= 0.5.0)
   rake
   randexp

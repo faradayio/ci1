@@ -64,26 +64,10 @@ group :test do
   gem "webrat"
   gem "shout-bot"
   gem "sinatra-ditties"
-  gem "broach", :git => "git://github.com/Manfred/broach.git"
-  gem "nap", :git => "git://github.com/qrush/nap.git"
   gem "bunny"
   gem "webmock"
   gem "turn"
 end
-
-group :prism_acceptance do
-  gem 'bundler'
-  gem 'capybara'
-  gem 'cucumber'
-  gem 'cucumber-rails'
-  gem 'rake'
-  gem 'rspec', '~>2.0.0.beta.17'
-
-  # carbon gem
-  gem 'artifice'
-  gem 'carbon'
-  gem 'json', '1.1.9'
-  gem 'timecop'
 
 group :prism_acceptance do
 #  gem 'capybara'

@@ -97,11 +97,11 @@ group :prism_acceptance do
 #  gem 'json', '1.1.9'
 #  gem 'timecop'
 
-  gem 'activesupport', '~> 3.0.0'
-  gem 'activerecord', '~> 3.0.0'
+#  gem 'activesupport', '~> 3.0.0'
+#  gem 'activerecord', '~> 3.0.0'
 
   # emitter gems
-  gem 'earth', '~> 0.0.36'
-  gem 'emitter'
-  gem 'sniff', '~> 0.1.14'
+#  gem 'earth', '~> 0.0.40'
+#  gem 'emitter'
+#  gem 'sniff', '~> 0.1.14'
 end

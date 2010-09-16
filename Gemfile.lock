@@ -81,7 +81,6 @@ GEM
       rake
     nap (0.4)
     nokogiri (1.4.3.1)
-    pg (0.9.0)
     rack (1.2.1)
     rack-test (0.5.0)
     rake (0.8.7)
@@ -159,7 +158,6 @@ DEPENDENCIES
   dm-timestamps (= 1.0.0)
   dm-types (= 1.0.0)
   dm-validations (= 1.0.0)
-  do_postgres (= 0.10.2)
   do_sqlite3 (= 0.10.2)
   extlib (= 0.9.15)
   haml (= 2.2.17)
@@ -168,7 +166,6 @@ DEPENDENCIES
   mocha
   nap
   nokogiri
-  pg
   rack-test (= 0.5.0)
   rake
   randexp

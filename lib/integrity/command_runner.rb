@@ -21,8 +21,6 @@ module Integrity
       @logger.debug(cmd)
 
       output = ""
-      @logger.info "Running in dir #{@dir} and it contains:"
-      @logger.info `cd #{@dir} && pwd && ls -l`
       IO.popen(cmd, "r") { |io| output = io.read }
 
       Result.new($?.success?, output.chomp)

@@ -9,9 +9,9 @@ require "integrity/notifier/campfire"
 
 Integrity.configure do |c|
   c.database     = ENV["DATABASE_URL"]
-  c.directory    = "tmp"
+  c.directory    = "/tmp"
   c.base_url     = 'http://tests.brighterplanet.com'
-  c.log          = "tmp/integrity.log"
+  c.log          = "/tmp/integrity.log"
   c.github_token = ENV["GITHUB_TOKEN"] || "TOKEN"
   c.build_all    = true
   c.builder      = :threaded, 5

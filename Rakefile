@@ -3,9 +3,9 @@ require "rake/clean"
 
 task :env do
   ENV["DATABASE_URL"] ||= "sqlite:///#{File.dirname(__FILE__)}/tmp/prism_ci.db"
-  ENV["URL"] ||= 'http://localhost:9292'
-  ENV['HTTP_AUTH_USERNAME'] ||= 'god'
-  ENV['HTTP_AUTH_PASSWORD'] ||= 'secret'
+  ENV["URL"] ||= 'http://localhost:3000'
+  ENV['HTTP_AUTH_USERNAME'] ||= 'test'
+  ENV['HTTP_AUTH_PASSWORD'] ||= 'test'
 end
 
 task :run => :env do

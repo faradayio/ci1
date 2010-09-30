@@ -7,5 +7,5 @@
     - stylesheets(:reset, :buttons, :integrity, :application)
   %body
     #header
-      %h1= @title.last
+      %h1= @title.join(' / ')
     #content= yield

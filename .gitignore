@@ -4,3 +4,4 @@ builds
 *.db
 *.log
 tmp
+*~

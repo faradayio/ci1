@@ -8,13 +8,13 @@ module Integrity
 
     not_found do
       status 404
-      show :not_found, :title => "lost, are we?"
+      show :not_found, :title => "Not found"
     end
 
     error do
       @error = request.env["sinatra.error"]
       status 500
-      show :error, :title => "something has gone terribly wrong"
+      show :error, :title => "Error"
     end
 
     before do
@@ -42,14 +42,14 @@ module Integrity
 
     get "/?" do
       @projects = authorized? ? Project.all : Project.all(:public => true)
-      show :home, :title => "projects"
+      show :home, :title => "Automated test suite"
     end
 
     get "/new" do
       login_required
 
       @project = Project.new
-      show :new, :title => ["projects", "new project"]
+      show :new, :title => ["Projects", "New project"]
     end
 
     post "/?" do
@@ -61,14 +61,14 @@ module Integrity
         update_notifiers_of(@project)
         redirect project_url(@project).to_s
       else
-        show :new, :title => ["projects", "new project"]
+        show :new, :title => ["Projects", "New project"]
       end
     end
 
     get "/:project" do
       login_required unless current_project.public?
 
-      show :project, :title => ["projects", current_project.name]
+      show :project, :title => ["Projects", current_project.name]
     end
 
     put "/:project" do
@@ -78,7 +78,7 @@ module Integrity
         update_notifiers_of(current_project)
         redirect project_url(current_project).to_s
       else
-        show :new, :title => ["projects", current_project.permalink, "edit"]
+        show :new, :title => ["Projects", current_project.permalink, "edit"]
       end
     end
 
@@ -92,7 +92,7 @@ module Integrity
     get "/:project/edit" do
       login_required
 
-      show :new, :title => ["projects", current_project.permalink, "edit"]
+      show :new, :title => ["Projects", current_project.permalink, "edit"]
     end
 
     post "/:project/builds" do
@@ -105,7 +105,7 @@ module Integrity
     get "/:project/builds/:build" do
       login_required unless current_project.public?
 
-      show :build, :title => ["projects", current_project.permalink,
+      show :build, :title => ["Projects", current_project.permalink,
         current_build.sha1_short]
     end
 

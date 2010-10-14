@@ -22,7 +22,7 @@ gem "thin"
 gem "thor", "0.9.9"
 gem "uuidtools", "2.1.1"
 
-group :production do gem "dm-postgres-adapter", "1.0.0"
+group :production do
   gem 'sqlite3-ruby'
 end
 

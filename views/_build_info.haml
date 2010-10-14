@@ -11,7 +11,7 @@
   %p&= build.message
   - if build.completed?
     %p.meta<
-      &== Built at #{build.completed_at.strftime('%H:%M')} on #{pretty_date build.completed_at}
+      &== Built #{pretty_date build.completed_at} #{build.completed_at.strftime('%H:%M')}
   %p.meta<
     %span.who<
       &== Committed by: #{build.author}

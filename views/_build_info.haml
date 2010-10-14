@@ -9,9 +9,12 @@
 
 %blockquote
   %p&= build.message
+  - if build.completed?
+    %p.meta<
+      &== Built at #{build.completed_at.strftime('%H:%M')} on #{pretty_date build.completed_at}
   %p.meta<
     %span.who<
-      &== by: #{build.author}
+      &== Committed by: #{build.author}
     |
     %span.when{ :title => build.committed_at }<
       &= pretty_date build.committed_at

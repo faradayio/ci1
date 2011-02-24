@@ -76,7 +76,7 @@ module Integrity
     end
 
     def last_build
-      sorted_builds.first
+      builds(:order => [:created_at.desc], :limit => 1).first
     end
 
     def blank?

@@ -51,6 +51,8 @@ module Integrity
         when :threaded
           Integrity::ThreadedBuilder.new(args || 2, logger)
         when :dj
+          require 'delayed_job'
+          require 'delayed_job_data_mapper'
           Integrity::DelayedBuilder.new(args)
         when :resque
           Integrity::ResqueBuilder

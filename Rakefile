@@ -45,13 +45,11 @@ end
 namespace :jobs do
   desc "Clear the delayed_job queue."
   task :clear => :env do
-    require "integrity/builder/delayed"
     Delayed::Job.delete_all
   end
 
   desc "Start a delayed_job worker."
   task :work => :env do
-    require "integrity/builder/delayed"
     Delayed::Worker.new.start
   end
 end

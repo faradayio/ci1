@@ -2,10 +2,8 @@ require "rake/testtask"
 require "rake/clean"
 
 task :env do
-  ENV["DATABASE_URL"] ||= "sqlite:///#{File.dirname(__FILE__)}/tmp/prism_ci.db"
-  ENV["URL"] ||= 'http://localhost:3000'
-  ENV['HTTP_AUTH_USERNAME'] ||= 'test'
-  ENV['HTTP_AUTH_PASSWORD'] ||= 'test'
+  $:.push File.dirname(__FILE__)
+  require "init"
 end
 
 task :run => :env do
@@ -33,13 +31,11 @@ end
 
 desc "Create the database"
 task :db => :env do
-  require "init"
   DataMapper.auto_upgrade!
 end
 
 desc "Clean-up build directory"
 task :cleanup => :env do
-  require "init"
   Integrity::Build.all(:completed_at.not => nil).each { |build|
     dir = Integrity.directory.join(build.id.to_s)
     dir.rmtree if dir.directory?
@@ -49,14 +45,12 @@ end
 namespace :jobs do
   desc "Clear the delayed_job queue."
   task :clear => :env do
-    require "init"
     require "integrity/builder/delayed"
     Delayed::Job.delete_all
   end
 
   desc "Start a delayed_job worker."
   task :work => :env do
-    require "init"
     require "integrity/builder/delayed"
     Delayed::Worker.new.start
   end
@@ -68,7 +62,6 @@ begin
 
     desc "Start a Resque worker for Integrity"
     task :work => :env do
-      require "init"
       ENV["QUEUE"] = "integrity"
       Rake::Task["resque:resque:work"].invoke
     end

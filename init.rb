@@ -8,9 +8,9 @@ require "integrity"
 require "integrity/notifier/campfire"
 
 Integrity.configure do |c|
-  c.database     = ENV["DATABASE_URL"]
+  c.database     = ENV["DATABASE_URL"] || 'sqlite3:integrity.db'
   c.directory    = "/tmp"
-  c.base_url     = 'http://tests.brighterplanet.com'
+  c.base_url     = ENV['URL'] || 'http://tests.brighterplanet.com'
   c.log          = "/tmp/integrity.log"
   c.github_token = ENV["GITHUB_TOKEN"] || "TOKEN"
   c.build_all    = true

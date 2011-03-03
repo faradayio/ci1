@@ -6,11 +6,9 @@ gem "data_objects", "0.10.2"
 gem "dm-aggregates", "1.0.0"
 gem "dm-core", "1.0.0"
 gem "dm-migrations", "1.0.0"
-gem "dm-sqlite-adapter", "1.0.0"
 gem "dm-timestamps", "1.0.0"
 gem "dm-types", "1.0.0"
 gem "dm-validations", "1.0.0"
-gem "do_sqlite3", "0.10.2"
 gem "extlib", "0.9.15"
 gem "haml", "2.2.17"
 gem "json", "1.1.9"
@@ -22,8 +20,14 @@ gem "thin"
 gem "thor", "0.9.9"
 gem "uuidtools", "2.1.1"
 
-group :production do
+group :development do
+  gem "dm-sqlite-adapter", "1.0.0"
   gem 'sqlite3-ruby'
+end
+
+group :production do
+  gem "dm-mysql-adapter", "1.0.0"
+  gem 'mysql'
 end
 
 # These are dependencies for the various notifiers. Uncomment as appropriate.

@@ -3,7 +3,7 @@ source "http://rubygems.org"
 gem "addressable", "2.1.1"
 gem "bcrypt-ruby", "2.1.2"
 gem "data_objects", "0.10.2"
-gem "delayed_job", :git => 'git://github.com/dkastner/delayed_job'
+gem "delayed_job", :git => 'git://github.com/dkastner/delayed_job.git'
 gem 'delayed_job_data_mapper', '1.0.0.rc'
 gem "dm-aggregates", "1.0.0"
 gem "dm-core", "1.0.0"

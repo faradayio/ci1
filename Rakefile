@@ -52,6 +52,17 @@ namespace :jobs do
   task :work => :env do
     Delayed::Worker.new.start
   end
+
+  desc 'Start a background delayed_job worker'
+  task :start => :env do
+    require 'delayed/command'
+    Delayed::Command.new(['start']).daemonize
+  end
+  desc 'Stop a background delayed_job worker'
+  task :stop => :env do
+    require 'delayed/command'
+    Delayed::Command.new(['stop']).daemonize
+  end
 end
 
 begin

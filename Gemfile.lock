@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/dkastner/delayed_job.git
-  revision: e878f9f408e74653861c7757335c6f79feef9781
+  revision: e10f4a67892af9fa768f6a1043ce08f8b8122ec1
   specs:
     delayed_job (2.1.4)
       activesupport (~> 3.0)

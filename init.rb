@@ -8,7 +8,7 @@ require "integrity"
 require "integrity/notifier/campfire"
 
 require 'uri'
-database_url = ENV["DATABASE_URL"] || 'sqlite3:integrity.db'
+database_url = ENV["DATABASE_URL"] || 'sqlite3:/Users/dkastner/ci1/integrity.db'
 database_uri = URI.parse(database_url)
 database_settings = {
   :adapter  => database_uri.scheme.to_sym,

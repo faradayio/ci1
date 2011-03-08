@@ -27,14 +27,6 @@ module Integrity
       builds.destroy!
     end
 
-    def command
-      if html?
-        "CUCUMBER_FORMAT=html RSPEC_FORMAT=html #{@command}"
-      else
-        @command
-      end
-    end
-
     def repo
       @repo ||= Repository.new(uri, branch)
     end

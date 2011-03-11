@@ -135,7 +135,18 @@ module Integrity
       login_required unless current_project.public?
 
       output = current_build.output
-      output.sub(/.*<!DOCTYPE/m,'<!DOCTYPE')
+      output.sub!(/.*<!DOCTYPE/m,'<!DOCTYPE')
+      output.sub!(/<!DOCTYPE[^>]*>/, '')
+      output.sub!(/<html[^>]*>/, '')
+      output.sub!(/<head[^>]*>/, '')
+      output.sub!(/<title[^>]*>[^<]*<\/title>/, '')
+      output.sub!(/<\/head>/, '')
+      output.sub!(/<body[^>]*>/, '')
+      output.sub!(/<\/body>/, '')
+      output.sub!(/<\/html>/, '')
+      
+      doctype = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">'
+      "#{doctype}<html><body>#{output}</body></html>"
     end
   end
 end

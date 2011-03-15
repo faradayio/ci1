@@ -16,7 +16,6 @@ module Integrity
       def deliver!
         Broach.settings = config
         Broach.speak(config["room"], "#{short_message}. #{build_url}") if announce_build?
-        Broach.speak(config["room"], full_message, :type => :paste) if build.failed?
       end
 
     private
